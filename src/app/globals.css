@@ -1,0 +1,342 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN SYSTEM — Gabriel Sousa
+   ------------------------------------------------------------
+   Base escura e quente, cards claros de alto contraste, dois
+   acentos (laranja e lime) e uma única família tipográfica com
+   títulos pesados em caixa alta.
+   ============================================================ */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---------- Tema escuro (padrão) ---------- */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #151312;
+  --bg-deep: #100f0e;
+  /* Painéis escuros elevados */
+  --panel: #1c1a19;
+  --panel-raised: #232120;
+
+  /* Cards claros: o contraste que define o visual */
+  --card: #ffffff;
+  --card-text: #151312;
+  --card-muted: #6a6b6e;
+  --card-line: rgba(21, 19, 18, 0.1);
+
+  --text: #ffffff;
+  --muted: #998f8f;
+  /* 4.99:1 sobre o fundo: rótulos de 12px passam em AA. */
+  --faint: #8a8480;
+
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.2);
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-strong: rgba(255, 255, 255, 0.09);
+
+  --accent: #f46c38;
+  --accent-strong: #ff7f4d;
+  /* Tinta escura sobre o laranja: branco sobre #f46c38 dá 3.1:1 e
+     reprova em AA. Com #151312 sobe para ~5.9:1. */
+  --accent-ink: #151312;
+  --accent-soft: rgba(244, 108, 56, 0.14);
+  --accent-line: rgba(244, 108, 56, 0.35);
+
+  --lime: #c5ff41;
+  --lime-ink: #151312;
+
+  --ambient: rgba(244, 108, 56, 0.13);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --noise-opacity: 0.03;
+
+  --shadow-md: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 30px 70px -30px rgba(0, 0, 0, 0.8);
+}
+
+/* ---------- Tema claro ---------- */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f2efec;
+  --bg-deep: #e8e4e0;
+  --panel: #ffffff;
+  --panel-raised: #ffffff;
+
+  --card: #ffffff;
+  --card-text: #151312;
+  --card-muted: #6a6b6e;
+  --card-line: rgba(21, 19, 18, 0.1);
+
+  --text: #151312;
+  --muted: #5d5652;
+  /* 4.78:1 sobre o papel. */
+  --faint: #6f6862;
+
+  --line: rgba(21, 19, 18, 0.12);
+  --line-strong: rgba(21, 19, 18, 0.22);
+  --glass: rgba(255, 255, 255, 0.72);
+  --glass-strong: rgba(255, 255, 255, 0.9);
+
+  /* Escurecido até passar em AA nos dois usos: texto branco sobre o
+     laranja (5.5:1) e laranja como texto sobre o papel (4.8:1). */
+  --accent: #b8420f;
+  --accent-strong: #9c3709;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(184, 66, 15, 0.1);
+  --accent-line: rgba(184, 66, 15, 0.3);
+
+  --lime: #b7f22a;
+  --lime-ink: #151312;
+
+  --ambient: rgba(184, 66, 15, 0.1);
+  --grid-line: rgba(21, 19, 18, 0.04);
+  --noise-opacity: 0.02;
+
+  --shadow-md: 0 10px 30px -14px rgba(21, 19, 18, 0.2);
+  --shadow-lg: 0 30px 70px -32px rgba(21, 19, 18, 0.28);
+}
+
+/* ---------- Tokens Tailwind ---------- */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-deep: var(--bg-deep);
+  --color-panel: var(--panel);
+  --color-panel-raised: var(--panel-raised);
+
+  --color-card: var(--card);
+  --color-card-text: var(--card-text);
+  --color-card-muted: var(--card-muted);
+  --color-card-line: var(--card-line);
+
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-glass: var(--glass);
+  --color-glass-strong: var(--glass-strong);
+
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-line: var(--accent-line);
+
+  --color-lime: var(--lime);
+  --color-lime-ink: var(--lime-ink);
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+
+  --radius-card: 16px;
+  --radius-panel: 24px;
+
+  --shadow-soft: var(--shadow-md);
+  --shadow-deep: var(--shadow-lg);
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --breakpoint-xs: 26rem;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* clip em vez de hidden: corta o sangramento dos elementos
+       decorativos sem transformar o body em contêiner de rolagem. */
+    overflow-x: clip;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-strong) transparent;
+  }
+}
+
+/* ============================================================
+   UTILITÁRIOS
+   ============================================================ */
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 78rem;
+  padding-inline: 1.25rem;
+
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+  @media (width >= 80rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Título de seção: caixa alta, pesado, muito compacto. */
+@utility display {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+}
+
+@utility label-caps {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* Card claro padrão do sistema. */
+@utility card-light {
+  background-color: var(--card);
+  color: var(--card-text);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-md);
+}
+
+/* Dock: precisa continuar legível por cima dos cards laranja e
+   lime, então é vidro sobre um painel quase opaco, não só uma
+   camada translúcida. */
+@utility glass-dock {
+  background-color: color-mix(in srgb, var(--panel) 90%, transparent);
+  border: 1px solid var(--line-strong);
+}
+
+/* ============================================================
+   MOVIMENTO
+   ------------------------------------------------------------
+   Sem biblioteca de animação: um IntersectionObserver alterna
+   [data-revealed] e o resto é CSS.
+   ============================================================ */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition:
+    opacity 0.7s var(--ease-out-quint),
+    transform 0.7s var(--ease-out-quint);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal][data-revealed="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.enter {
+  animation: fade-rise 0.85s var(--ease-out-quint) both;
+  animation-delay: var(--enter-delay, 0ms);
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.82);
+  }
+}
+
+/* Ícones do seletor de tema: trocados por CSS, sem estado no React. */
+.theme-icon {
+  transition:
+    opacity 0.4s var(--ease-out-quint),
+    transform 0.4s var(--ease-out-quint);
+}
+
+.theme-icon-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+.theme-icon-moon {
+  opacity: 0;
+  transform: rotate(70deg) scale(0.5);
+}
+
+[data-theme="light"] .theme-icon-sun {
+  opacity: 0;
+  transform: rotate(-70deg) scale(0.5);
+}
+[data-theme="light"] .theme-icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
