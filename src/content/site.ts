@@ -159,24 +159,30 @@ export type SkillGroup = {
 };
 
 export const skillGroups: SkillGroup[] = [
+  // Só entra o que já foi usado para construir algo que está no ar.
   {
-    id: "desenvolvimento",
-    title: "Desenvolvimento",
-    description: "Da interface ao dado que a alimenta.",
-    // Adicione somente o que domina de fato.
-    items: ["Frontend", "Backend", "APIs", "Banco de dados"],
+    id: "interface",
+    title: "Interface",
+    description: "O lado que a pessoa usa.",
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS"],
   },
   {
-    id: "produto",
-    title: "Produto",
-    description: "As decisões que vêm antes do código.",
-    items: ["UX/UI", "Arquitetura", "Prototipação", "Design de produto"],
+    id: "dados",
+    title: "Dados e servidor",
+    description: "O que sustenta o produto por trás.",
+    items: [
+      "Node.js",
+      "Cloud Firestore",
+      "Firebase Authentication",
+      "Firebase Admin SDK",
+      "APIs serverless",
+    ],
   },
   {
     id: "ferramentas",
     title: "Ferramentas",
     description: "O processo do commit ao deploy.",
-    items: ["Git", "GitHub", "Vercel"],
+    items: ["Git", "GitHub", "Vercel", "Vite", "ESLint"],
   },
 ];
 
@@ -205,11 +211,15 @@ export type Project = {
   problem: string;
   solution: string;
   role: string;
+  /** O que o produto faz. Vazio = seção omitida. */
+  features: string[];
   /** Somente resultados reais e verificáveis. */
   result: string;
   technologies: string[];
   /** URL do produto. Vazio = botão não é exibido. */
   url: string;
+  /** Ressalva sobre o link (ex.: exige login). Vazio = omitida. */
+  urlNote: string;
   /** Screenshots em /public. Vazio = galeria não é exibida. */
   images: ProjectImage[];
   period: string;
@@ -228,50 +238,113 @@ export const projects: Project[] = [
     problem:
       "Quando planejamento, produção, assets e métricas moram em ferramentas diferentes, a equipe gasta tempo procurando informação e decide com uma visão incompleta do próprio trabalho.",
     solution:
-      "Um produto que reúne as quatro etapas em uma única interface. O planejamento alimenta a produção, os assets ficam junto do conteúdo que os usa, e as métricas voltam para o mesmo lugar onde a próxima decisão é tomada.",
-    role: "", // PREENCHER: o que você fez no projeto.
-    result: "", // PREENCHER: somente resultados reais.
-    technologies: [], // PREENCHER
-    url: "", // PREENCHER
+      "Uma aplicação full stack que reúne as quatro etapas em uma interface só. O planejamento alimenta o fluxo de produção, os assets ficam junto do conteúdo que os usa, e o desempenho volta para o mesmo lugar onde a próxima decisão é tomada. Os dados sincronizam em tempo real, então o que muda na produção aparece na análise sem exportar nada.",
+    role: "Construí o produto inteiro, da interface ao backend: modelagem dos dados no Firestore, autenticação, sincronização em tempo real, os componentes de interface e os painéis de análise. Também montei a estrutura serverless em Node.js que deixa o terreno preparado para integrações com Instagram e TikTok, com criptografia das credenciais.",
+    features: [
+      "Dashboard com resumo da produção e do desempenho dos conteúdos",
+      "Pipeline de produção em quadro Kanban com arrastar e soltar",
+      "Calendário editorial",
+      "Banco de ideias, pautas e referências",
+      "Gestão de marca: cores, fontes e links dos materiais visuais",
+      "Análise de resultados com gráficos, indicadores, rankings e filtros por período e rede social",
+      "Histórico de publicações e suas métricas",
+      "Autenticação, sincronização em tempo real e armazenamento local de apoio",
+      "Tema claro e escuro",
+    ],
+    result: "", // PREENCHER: somente resultados reais e verificáveis.
+    technologies: [
+      "React 19",
+      "JavaScript",
+      "Vite",
+      "Tailwind CSS",
+      "Firebase Authentication",
+      "Cloud Firestore",
+      "Firebase Admin SDK",
+      "Node.js",
+      "Vercel Functions",
+      "Recharts",
+    ],
+    url: "https://octaflow-ini.vercel.app/",
+    urlNote: "",
     images: [], // PREENCHER: { src: "/projetos/octaflow-1.png", alt: "..." }
     period: "",
   },
   {
     slug: "gamificacao-zion",
     name: "Gamificação Zion",
-    category: "Engajamento e desempenho",
+    category: "Engajamento e experiência",
     tagline: "Competição saudável entre unidades.",
     description:
-      "Plataforma de gamificação entre unidades, com foco em engajamento, competição saudável e acompanhamento de desempenho.",
+      "Game das Unidades: plataforma de gamificação para a classe bíblica do Clube Zion, com jogos, pontuação e ranking entre as unidades.",
     context:
-      "Times distribuídos em unidades diferentes raramente enxergam como estão indo em relação ao conjunto — e sem essa visão, o desempenho vira assunto de relatório, não do dia a dia.",
+      "A classe bíblica do clube de desbravadores é conduzida ao vivo, com seis unidades participando ao mesmo tempo. Sem uma ferramenta própria, a pontuação vira anotação no papel e o ranking só existe na cabeça de quem está apitando.",
     problem:
-      "Manter o engajamento entre unidades exige mais do que divulgar resultados no fim do mês. É preciso tornar o progresso visível enquanto ele acontece, sem transformar a comparação em pressão.",
+      "Manter seis unidades engajadas exige que o progresso seja visível enquanto acontece. E quem conduz a atividade precisa registrar pontos sem parar a dinâmica para fazer conta.",
     solution:
-      "Uma plataforma que traduz o desempenho das unidades em uma dinâmica de gamificação: o progresso fica acompanhável de perto e a competição acontece de forma saudável, com regras claras para todos.",
-    role: "",
+      "Uma aplicação com seis jogos prontos — Quiz Bíblico, Mímica, Música, Stop Bíblico, Forca Bíblica e Batalha de Versículos — e o controle de pontuação embutido. O ranking atualiza em tempo real, o histórico registra quem deu cada ponto e por quê, e a equipe personaliza perguntas, tempos e pontuações sem mexer no código.",
+    role: "Desenvolvi a aplicação por completo: a lógica dos seis jogos, o sistema de pontuação e ranking, a persistência em tempo real no Firestore e toda a identidade visual inspirada em videogame, com animações, cronômetros e efeitos sonoros. Também implementei o modo local, que mantém o jogo funcionando quando não há Firebase configurado.",
+    features: [
+      "Seis dinâmicas: Quiz Bíblico, Mímica, Música, Stop Bíblico, Forca Bíblica e Batalha de Versículos",
+      "Pontuação de seis unidades com ranking em tempo real",
+      "Histórico de pontos com motivo, responsável e data",
+      "Personalização de perguntas, palavras, tempos de rodada e pontuações",
+      "Cronômetros, efeitos sonoros e animações",
+      "Layout adaptado a celular e computador",
+      "Funcionamento offline com armazenamento local",
+    ],
     result: "",
-    technologies: [],
-    url: "",
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Cloud Firestore",
+      "Firebase Authentication",
+      "CSS",
+      "Web Audio API",
+    ],
+    url: "https://gamificacao-zion.vercel.app",
+    urlNote: "",
     images: [],
     period: "",
   },
   {
     slug: "pm-casa",
     name: "PM Casa",
-    category: "Operação e gestão",
+    category: "Gestão comercial",
     tagline: "Cada lançamento sob controle.",
-    description: "Plataforma de gestão de lançamentos da Paper Memories Casa.",
+    description:
+      "Plataforma de gestão comercial da Paper Memories Casa: clientes, catálogo, pedidos e o planejamento de lançamentos em um só lugar.",
     context:
-      "Um lançamento envolve etapas, prazos e responsáveis que precisam se encontrar no tempo certo. Quando esse controle vive em mensagens e planilhas soltas, o que falha é sempre a informação, não a equipe.",
+      "Um lançamento envolve metas, orçamento, tarefas com responsáveis e prazos — e depois pedidos, clientes e fornecedores para acompanhar. Quando esse controle vive em mensagens e planilhas soltas, o que falha é sempre a informação, não a equipe.",
     problem:
-      "A Paper Memories Casa precisava de um lugar próprio para organizar seus lançamentos, em vez de reconstruir o mesmo controle manualmente a cada ciclo.",
+      "A Paper Memories Casa reconstruía o mesmo controle manualmente a cada ciclo, e os números que importam para decidir — faturamento, ticket médio, conversão, custo de aquisição — só apareciam depois, quando o lançamento já tinha acabado.",
     solution:
-      "Uma plataforma dedicada à gestão desses lançamentos, com a organização das etapas centralizada em um software feito para essa operação específica.",
-    role: "",
+      "Uma aplicação full stack que reúne clientes, catálogo, pedidos e planejamento de lançamentos na mesma base. Como os pedidos e os cadastros alimentam os painéis diretamente, os indicadores acompanham o lançamento enquanto ele acontece, em vez de virarem relatório no fim.",
+    role: "Desenvolvi a aplicação completa. Modelei os dados e as regras de negócio em TypeScript, implementei a autenticação com perfis de acesso, o acesso ao banco pelo servidor via Server Actions e Firebase Admin SDK, a importação de clientes e produtos por CSV e os painéis de resultado. Usei operações transacionais no Firestore para manter a consistência dos pedidos e escrevi testes automatizados para os cálculos de métricas e para a importação.",
+    features: [
+      "Clientes: cadastro, origem de aquisição, histórico de compras, recompra, tags e anotações",
+      "Catálogo: categorias, variações, SKU, preços, dimensões e unidades por pacote",
+      "Pedidos com múltiplos itens, descontos, status, pagamento e entrega",
+      "Planejamento de lançamentos com metas, orçamento e tarefas por responsável e prazo",
+      "Painéis de faturamento, ticket médio, conversão, CAC e lucro estimado",
+      "Acompanhamento de fornecedores com cálculo das quantidades necessárias",
+      "Importação de clientes e produtos por CSV, com busca e filtros",
+      "Autenticação, recuperação de senha e gestão de usuários por perfil de acesso",
+    ],
     result: "",
-    technologies: [],
-    url: "",
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Firebase Authentication",
+      "Cloud Firestore",
+      "Firebase Admin SDK",
+      "Node.js",
+      "ESLint",
+    ],
+    url: "https://painel.papermemoriescasa.com.br/",
+    urlNote: "Painel em uso pela equipe: o acesso exige login.",
     images: [],
     period: "",
   },
@@ -330,8 +403,8 @@ export const timeline: TimelineEntry[] = [
     id: "engenharia-de-software",
     kind: "Formação",
     title: "Engenharia de Software",
-    organization: "", // PREENCHER: instituição
-    period: "", // PREENCHER: ex. "2024 — 2028"
+    organization: "UNDB — Universidade Dom Bosco",
+    period: "2024 — 2029",
     status: "Em andamento",
     description:
       "Graduação com foco em fundamentos de engenharia: estruturas de dados, arquitetura de software, bancos de dados e desenvolvimento de sistemas.",

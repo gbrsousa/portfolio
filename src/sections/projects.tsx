@@ -6,6 +6,9 @@ import { SectionHeader } from "@/components/section-header";
 import { projects } from "@/content/site";
 import { ordinal } from "@/lib/utils";
 
+/** Quantas tecnologias o card da home mostra antes de resumir. */
+const TECH_NO_CARD = 5;
+
 export function Projects() {
   return (
     <section id="projetos" className="scroll-mt-28 py-16 sm:py-24 lg:py-28">
@@ -97,8 +100,10 @@ export function Projects() {
                     </p>
 
                     {project.technologies.length > 0 && (
+                      /* Só as principais aqui: o card é resumo, a lista
+                         completa fica no case. Evita a parede de chips. */
                       <ul className="mt-5 flex flex-wrap gap-2">
-                        {project.technologies.map((tech) => (
+                        {project.technologies.slice(0, TECH_NO_CARD).map((tech) => (
                           <li
                             key={tech}
                             className="rounded-full border border-line px-3 py-1 text-xs text-muted"
@@ -106,6 +111,11 @@ export function Projects() {
                             {tech}
                           </li>
                         ))}
+                        {project.technologies.length > TECH_NO_CARD && (
+                          <li className="rounded-full px-1 py-1 text-xs text-faint">
+                            +{project.technologies.length - TECH_NO_CARD}
+                          </li>
+                        )}
                       </ul>
                     )}
                   </div>

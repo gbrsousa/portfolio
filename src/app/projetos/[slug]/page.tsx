@@ -193,6 +193,11 @@ export default async function ProjectPage({
                           Abrir produto
                           <Icon name="arrowUpRight" className="size-3.5" />
                         </a>
+                        {filled(project.urlNote) && (
+                          <span className="mt-1.5 block text-xs leading-relaxed text-faint">
+                            {project.urlNote}
+                          </span>
+                        )}
                       </dd>
                     </div>
                   )}
@@ -215,6 +220,33 @@ export default async function ProjectPage({
                   text={block.text}
                 />
               ))}
+
+              {project.features.length > 0 && (
+                <Reveal as="section" className="border-t border-line pt-7">
+                  <div className="flex items-baseline gap-4">
+                    <span className="text-[0.6875rem] font-semibold tabular-nums text-accent">
+                      {ordinal(blocks.length)}
+                    </span>
+                    <h2 className="text-lg font-bold tracking-[-0.02em] sm:text-xl">
+                      O que o produto faz
+                    </h2>
+                  </div>
+                  <ul className="mt-5 grid gap-px pl-8 sm:grid-cols-2 sm:gap-x-8">
+                    {project.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex gap-3 border-t border-line py-3 text-[0.9375rem] leading-relaxed text-muted"
+                      >
+                        <span
+                          aria-hidden
+                          className="mt-2 size-1.5 shrink-0 rounded-full bg-accent"
+                        />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              )}
 
               {project.images.length > 0 && (
                 <Reveal as="section" className="border-t border-line pt-7">
