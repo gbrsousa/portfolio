@@ -50,8 +50,8 @@ export const profile = {
   photo: {
     src: "/gabriel.jpg",
     alt: "Retrato de Gabriel Sousa",
-    width: 720,
-    height: 800,
+    width: 1165,
+    height: 1350,
   },
 } as const;
 
