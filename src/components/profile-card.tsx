@@ -2,9 +2,17 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { Icon } from "@/components/icons";
+import { Icon, type IconName } from "@/components/icons";
 import { contactLinks, profile } from "@/content/site";
 import { filled } from "@/lib/utils";
+
+/** Marca própria quando existe; seta genérica para canais novos. */
+function socialIcon(id: string): IconName {
+  if (id === "email") return "mail";
+  if (id === "github") return "github";
+  if (id === "linkedin") return "linkedin";
+  return "arrowUpRight";
+}
 
 /**
  * Card claro do retrato: o contraponto de luz sobre o fundo quase
@@ -138,7 +146,7 @@ export function ProfileCard() {
                     className="grid size-9 place-items-center rounded-full text-card-muted transition-colors duration-300 hover:bg-black/5 hover:text-card-text"
                   >
                     <Icon
-                      name={link.id === "email" ? "mail" : "arrowUpRight"}
+                      name={socialIcon(link.id)}
                       className="size-[18px]"
                     />
                   </a>

@@ -120,8 +120,8 @@ export const contactLinks: ContactLink[] = [
   {
     id: "linkedin",
     label: "LinkedIn",
-    display: "", // PREENCHER ex.: "/in/gabrielsousa"
-    href: "", // PREENCHER ex.: "https://linkedin.com/in/gabrielsousa"
+    display: "/in/gbrsousa",
+    href: "https://www.linkedin.com/in/gbrsousa/",
   },
   {
     id: "github",

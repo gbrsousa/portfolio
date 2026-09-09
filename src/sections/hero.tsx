@@ -1,8 +1,8 @@
 import { Button } from "@/components/button";
 import { Icon, type IconName } from "@/components/icons";
 import { ProfileCard } from "@/components/profile-card";
-import { highlights, primaryContact, profile } from "@/content/site";
-import { cx, filled } from "@/lib/utils";
+import { highlights, profile } from "@/content/site";
+import { cx } from "@/lib/utils";
 
 /** Estilo de cada bento card por tom. */
 const tones = {
@@ -18,10 +18,6 @@ const iconBoxTones = {
 } as const;
 
 export function Hero() {
-  const contactHref = filled(primaryContact?.href)
-    ? primaryContact.href
-    : "/#contato";
-
   return (
     <section id="inicio" className="scroll-mt-28 pb-20 pt-28 sm:pb-28 sm:pt-32 lg:pb-32 lg:pt-36">
       <div className="container-page">
@@ -61,7 +57,10 @@ export function Hero() {
               <Button href="/#projetos" arrow>
                 Ver projetos
               </Button>
-              <Button href={contactHref} variant="outline">
+              {/* Leva à seção de contato, não direto para o mailto: abrir
+                  o app de e-mail sem aviso é abrupto, e lá o visitante
+                  escolhe entre formulário, e-mail, LinkedIn e GitHub. */}
+              <Button href="/#contato" variant="outline">
                 Entre em contato
               </Button>
             </div>
