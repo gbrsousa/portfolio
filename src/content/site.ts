@@ -391,8 +391,8 @@ export const sectionIds = [
 ] as const;
 
 export const site = {
-  /** Ajuste após o deploy para a URL definitiva. */
-  url: "https://gabrielsousa.vercel.app",
+  /** URL de produção. Alimenta sitemap, canonical e Open Graph. */
+  url: "https://gbrsousa.vercel.app",
   title: "Gabriel Sousa — Desenvolvedor de Software",
   description:
     "Gabriel Sousa, desenvolvedor e estudante de Engenharia de Software. Construo produtos digitais completos — da experiência de uso à estrutura que sustenta o sistema.",
