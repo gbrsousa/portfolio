@@ -142,6 +142,7 @@ export const about = {
   paragraphs: [
     "Estudo Engenharia de Software e passo a maior parte do tempo construindo coisas. Cada projeto começa pelo problema: o que precisa ser resolvido, para quem, e o que acontece se for resolvido mal.",
     "Trabalho nos dois lados da tela. Na frente, me interessa a experiência — o quanto uma decisão de interface reduz o esforço de quem usa. Atrás, me interessa a estrutura — o quanto o código continua fácil de mudar seis meses depois.",
+    "Antes de escrever meus próprios produtos, passei por operações digitais reais: e-commerce, checkout, rastreamento, automação e os sites que precisavam estar no ar no dia do lançamento. Foi ali que aprendi a diferença entre um sistema que funciona na demonstração e um que aguenta o cliente chegando.",
   ],
 };
 
@@ -195,6 +196,9 @@ export const skillGroups: SkillGroup[] = [
 export type ProjectImage = {
   src: string;
   alt: string;
+  /** Dimensões reais do arquivo: evitam distorção e salto de layout. */
+  width: number;
+  height: number;
   caption?: string;
 };
 
@@ -276,7 +280,29 @@ export const projects: Project[] = [
     ],
     url: "https://octaflow-ini.vercel.app/",
     urlNote: "",
-    images: [], // PREENCHER: { src: "/projetos/octaflow-1.png", alt: "..." }
+    images: [
+      {
+        src: "/projetos/octaflow-3.png",
+        alt: "Dashboard do Octaflow com o resumo da produção, a saúde da esteira de conteúdo e os conteúdos de melhor desempenho.",
+        width: 1440,
+        height: 779,
+        caption: "Dashboard: a produção e o desempenho na mesma tela.",
+      },
+      {
+        src: "/projetos/octaflow-2.png",
+        alt: "Biblioteca de conteúdos do Octaflow em tabela, com data, visualizações, likes, comentários, compartilhamentos e saves por publicação.",
+        width: 1440,
+        height: 1144,
+        caption: "Biblioteca de conteúdos, ordenável por qualquer métrica.",
+      },
+      {
+        src: "/projetos/octaflow-1.png",
+        alt: "Painel de performance do Octaflow com indicadores, evolução das visualizações no período e comparação entre redes sociais.",
+        width: 1440,
+        height: 779,
+        caption: "Panorama de performance, com comparação entre redes.",
+      },
+    ],
     period: "",
   },
   {
@@ -315,7 +341,22 @@ export const projects: Project[] = [
     ],
     url: "https://gamificacao-zion.vercel.app",
     urlNote: "",
-    images: [],
+    images: [
+      {
+        src: "/projetos/game-das-unidades-1.webp",
+        alt: "Ranking do Game das Unidades em pixel art, com as seis unidades e suas pontuações em placas de madeira sobre um cenário de acampamento.",
+        width: 1878,
+        height: 969,
+        caption: "Ranking ao vivo, projetado durante a atividade.",
+      },
+      {
+        src: "/projetos/game-das-unidades-2.png",
+        alt: "Painel do instrutor do Game das Unidades, com os seis jogos disponíveis e os botões de configurar e iniciar cada dinâmica.",
+        width: 1878,
+        height: 969,
+        caption: "Painel do instrutor: configurar e iniciar cada dinâmica.",
+      },
+    ],
     period: "",
   },
   {
@@ -358,7 +399,22 @@ export const projects: Project[] = [
     ],
     url: "https://painel.papermemoriescasa.com.br/",
     urlNote: "Painel privado: o acesso exige login.",
-    images: [],
+    images: [
+      {
+        src: "/projetos/pm-casa-1.png",
+        alt: "Visão geral da operação no PM Casa, com os primeiros passos de configuração, indicadores de faturamento, conversão e ticket médio, e as próximas ações.",
+        width: 1912,
+        height: 1296,
+        caption: "Visão geral da operação, com o estado inicial guiando a configuração.",
+      },
+      {
+        src: "/projetos/pm-casa-2.png",
+        alt: "A mesma visão geral da operação do PM Casa no tema escuro.",
+        width: 1912,
+        height: 1296,
+        caption: "O mesmo painel no tema escuro.",
+      },
+    ],
     period: "",
   },
 ];
@@ -408,10 +464,82 @@ export type TimelineEntry = {
   /** Ex.: "Em andamento". Vazio = não exibido. */
   status: string;
   description: string;
+  /** O que foi feito, em itens curtos. Vazio = seção omitida. */
+  highlights: string[];
+  /**
+   * Resultado da operação, sempre creditado à equipe. Números de
+   * faturamento aqui são da empresa, não uma conquista individual —
+   * o texto precisa deixar isso explícito.
+   */
+  result: string;
   technologies: string[];
 };
 
 export const timeline: TimelineEntry[] = [
+  {
+    id: "paper-memories-casa",
+    kind: "Experiência",
+    title: "Tecnologia e e-commerce",
+    organization: "Paper Memories Casa",
+    period: "", // PREENCHER: ex. "2024 — atual"
+    status: "",
+    description:
+      "Acompanhei a marca desde o início da operação, responsável pela infraestrutura digital que sustenta os lançamentos: o e-commerce, a jornada de compra e o que precisa funcionar quando o cliente chega ao site.",
+    highlights: [
+      "Criação, configuração e manutenção do e-commerce da marca",
+      "Configuração e testes de checkout, meios de pagamento e frete",
+      "Conferência da jornada de compra completa antes de cada lançamento",
+      "Cadastro e organização de catálogo: produtos, coleções, preços, pesos e medidas",
+      "Suporte técnico durante campanhas e picos de volume",
+      "Acompanhamento de indicadores comerciais dos lançamentos",
+      "Produção e edição de vídeos e criativos para as campanhas",
+    ],
+    result:
+      "A marca acumulou cerca de R$ 210 mil em faturamento desde o início da operação — resultado do trabalho conjunto da equipe, com a minha parte na infraestrutura de e-commerce e na produção audiovisual que sustentam os lançamentos.",
+    technologies: [],
+  },
+  {
+    id: "conviteria-paper-memories",
+    kind: "Experiência",
+    title: "Tecnologia e sites",
+    organization: "Conviteria Paper Memories",
+    period: "", // PREENCHER
+    status: "",
+    description:
+      "Responsável pelos sites personalizados de casamento entregues a cada casal — traduzir a identidade visual do projeto em uma experiência digital para os convidados, e mantê-la no ar até o dia do evento.",
+    highlights: [
+      "Criação, configuração e gerenciamento dos sites de casamento",
+      "Estruturação de cada site conforme a identidade visual do projeto",
+      "Organização das informações: cerimônia, recepção, lista de presentes e confirmação de presença",
+      "Manutenção e ajustes durante todo o período de preparação",
+      "Suporte técnico ao site institucional e às ferramentas digitais",
+      "Atendimento direto às noivas para mudanças no ambiente digital",
+    ],
+    result: "",
+    technologies: [],
+  },
+  {
+    id: "marca-leticia-oliveira",
+    kind: "Experiência",
+    title: "Tecnologia, automação e dados",
+    organization: "Marca Letícia Oliveira",
+    period: "", // PREENCHER
+    status: "",
+    description:
+      "Atuei na infraestrutura que liga aquisição, automação e pós-venda — não só na ponta da campanha, mas nos sistemas que precisavam conversar entre si para o cliente ter uma jornada contínua.",
+    highlights: [
+      "Implementação e organização da plataforma de cursos na Kiwify",
+      "Configuração de Pixel, Google Tag Manager e GA4, com eventos de conversão",
+      "Construção de automações de marketing e pós-venda no ManyChat e no BotConversa",
+      "Jornadas automáticas de relacionamento (D+1, D+2, D+3) e segmentação por tags",
+      "Integrações entre as plataformas da operação digital",
+      "Gestão de tráfego pago e acompanhamento de indicadores de campanha",
+      "Apoio à estrutura de blog e SEO",
+    ],
+    result:
+      "A plataforma de cursos estruturada pelo time alcançou cerca de R$ 464,9 mil em faturamento — resultado construído em conjunto pela equipe, com a minha parte na estrutura tecnológica, nas automações e no rastreamento.",
+    technologies: [],
+  },
   {
     id: "engenharia-de-software",
     kind: "Formação",
@@ -421,6 +549,8 @@ export const timeline: TimelineEntry[] = [
     status: "Em andamento",
     description:
       "Graduação com foco em fundamentos de engenharia: estruturas de dados, arquitetura de software, bancos de dados e desenvolvimento de sistemas.",
+    highlights: [],
+    result: "",
     technologies: [],
   },
   // Novas entradas (estágios, trabalhos, cursos) entram aqui.

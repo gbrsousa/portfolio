@@ -39,6 +39,12 @@ export function Experience() {
                       {entry.organization}
                     </p>
                   )}
+
+                  {filled(entry.period) && (
+                    <p className="mt-2 text-sm tabular-nums text-faint">
+                      {entry.period}
+                    </p>
+                  )}
                 </div>
 
                 <div className="md:col-span-5">
@@ -48,9 +54,26 @@ export function Experience() {
                     </p>
                   )}
 
-                  {filled(entry.period) && (
-                    <p className="mt-4 text-sm tabular-nums text-faint">
-                      {entry.period}
+                  {entry.highlights.length > 0 && (
+                    <ul className="mt-5 space-y-2.5">
+                      {entry.highlights.map((item) => (
+                        <li
+                          key={item}
+                          className="flex gap-3 text-sm leading-relaxed text-muted"
+                        >
+                          <span
+                            aria-hidden
+                            className="mt-[7px] size-1 shrink-0 rounded-full bg-accent"
+                          />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {filled(entry.result) && (
+                    <p className="mt-5 border-l-2 border-accent-line pl-4 text-sm leading-relaxed text-faint">
+                      {entry.result}
                     </p>
                   )}
 

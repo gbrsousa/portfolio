@@ -270,10 +270,10 @@ export default async function ProjectPage({
                           <Image
                             src={image.src}
                             alt={image.alt}
-                            width={1440}
-                            height={900}
+                            width={image.width}
+                            height={image.height}
                             sizes="(max-width: 1024px) 92vw, 44rem"
-                            className="w-full object-cover"
+                            className="h-auto w-full"
                           />
                         </div>
                         {image.caption && (
