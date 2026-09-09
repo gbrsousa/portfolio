@@ -12,6 +12,17 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+
+  /** Slugs antigos que já estiveram no ar continuam resolvendo. */
+  async redirects() {
+    return [
+      {
+        source: "/projetos/gamificacao-zion",
+        destination: "/projetos/game-das-unidades",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
