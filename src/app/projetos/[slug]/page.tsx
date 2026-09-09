@@ -86,6 +86,7 @@ export default async function ProjectPage({
 
   const next = projects[(index + 1) % projects.length];
   const hasMeta =
+    filled(project.status) ||
     filled(project.role) ||
     project.technologies.length > 0 ||
     filled(project.period) ||
@@ -146,8 +147,17 @@ export default async function ProjectPage({
             {hasMeta && (
               <aside className="lg:col-span-4">
                 <dl className="rounded-panel border border-line bg-panel p-6 lg:sticky lg:top-28">
-                  {filled(project.period) && (
+                  {filled(project.status) && (
                     <div className="pb-4">
+                      <dt className="label-caps">Situação</dt>
+                      <dd className="mt-2 text-[0.9375rem] leading-relaxed">
+                        {project.status}
+                      </dd>
+                    </div>
+                  )}
+
+                  {filled(project.period) && (
+                    <div className="border-t border-line py-4 first:border-t-0 first:pt-0">
                       <dt className="label-caps">Período</dt>
                       <dd className="mt-2 text-[0.9375rem]">
                         {project.period}

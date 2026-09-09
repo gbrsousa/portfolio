@@ -213,7 +213,16 @@ export type Project = {
   role: string;
   /** O que o produto faz. Vazio = seção omitida. */
   features: string[];
-  /** Somente resultados reais e verificáveis. */
+  /**
+   * Estágio real do projeto, ex.: "Projeto pessoal · no ar".
+   * Existe para dizer a verdade sobre o alcance de cada produto sem
+   * precisar inventar métrica. Vazio = não exibido.
+   */
+  status: string;
+  /**
+   * Somente resultados reais e verificáveis — número que você possa
+   * comprovar. Na dúvida, deixe vazio: a seção some.
+   */
   result: string;
   technologies: string[];
   /** URL do produto. Vazio = botão não é exibido. */
@@ -251,7 +260,8 @@ export const projects: Project[] = [
       "Autenticação, sincronização em tempo real e armazenamento local de apoio",
       "Tema claro e escuro",
     ],
-    result: "", // PREENCHER: somente resultados reais e verificáveis.
+    status: "Projeto pessoal · no ar",
+    result: "", // PREENCHER se houver número comprovável.
     technologies: [
       "React 19",
       "JavaScript",
@@ -270,12 +280,12 @@ export const projects: Project[] = [
     period: "",
   },
   {
-    slug: "gamificacao-zion",
-    name: "Gamificação Zion",
+    slug: "game-das-unidades",
+    name: "Game das Unidades",
     category: "Engajamento e experiência",
     tagline: "Competição saudável entre unidades.",
     description:
-      "Game das Unidades: plataforma de gamificação para a classe bíblica do Clube Zion, com jogos, pontuação e ranking entre as unidades.",
+      "Plataforma de gamificação para a classe bíblica do Clube Zion, com seis jogos, controle de pontuação e ranking em tempo real entre as unidades.",
     context:
       "A classe bíblica do clube de desbravadores é conduzida ao vivo, com seis unidades participando ao mesmo tempo. Sem uma ferramenta própria, a pontuação vira anotação no papel e o ranking só existe na cabeça de quem está apitando.",
     problem:
@@ -292,6 +302,7 @@ export const projects: Project[] = [
       "Layout adaptado a celular e computador",
       "Funcionamento offline com armazenamento local",
     ],
+    status: "Projeto pessoal · no ar",
     result: "",
     technologies: [
       "Next.js 16",
@@ -315,7 +326,7 @@ export const projects: Project[] = [
     description:
       "Plataforma de gestão comercial da Paper Memories Casa: clientes, catálogo, pedidos e o planejamento de lançamentos em um só lugar.",
     context:
-      "Um lançamento envolve metas, orçamento, tarefas com responsáveis e prazos — e depois pedidos, clientes e fornecedores para acompanhar. Quando esse controle vive em mensagens e planilhas soltas, o que falha é sempre a informação, não a equipe.",
+      "A Paper Memories Casa faz seus lançamentos por grupos de WhatsApp, e o time comercial acompanha tudo isso à mão. Um lançamento envolve metas, orçamento, tarefas com responsáveis e prazos — e depois pedidos, clientes e fornecedores. Quando esse controle vive em mensagens e planilhas soltas, o que falha é sempre a informação, não a equipe.",
     problem:
       "A Paper Memories Casa reconstruía o mesmo controle manualmente a cada ciclo, e os números que importam para decidir — faturamento, ticket médio, conversão, custo de aquisição — só apareciam depois, quando o lançamento já tinha acabado.",
     solution:
@@ -331,7 +342,9 @@ export const projects: Project[] = [
       "Importação de clientes e produtos por CSV, com busca e filtros",
       "Autenticação, recuperação de senha e gestão de usuários por perfil de acesso",
     ],
-    result: "",
+    status: "Feito para a Paper Memories Casa · implantação em preparação",
+    result:
+      "Entregue para o time comercial da Paper Memories Casa: três pessoas vão usar a plataforma para gerenciar os lançamentos feitos por grupos de WhatsApp. A implantação ainda não começou.",
     technologies: [
       "Next.js 16",
       "React 19",
@@ -344,7 +357,7 @@ export const projects: Project[] = [
       "ESLint",
     ],
     url: "https://painel.papermemoriescasa.com.br/",
-    urlNote: "Painel em uso pela equipe: o acesso exige login.",
+    urlNote: "Painel privado: o acesso exige login.",
     images: [],
     period: "",
   },
