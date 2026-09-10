@@ -142,7 +142,7 @@ export const about = {
   paragraphs: [
     "Estudo Engenharia de Software e passo a maior parte do tempo construindo coisas. Cada projeto começa pelo problema: o que precisa ser resolvido, para quem, e o que acontece se for resolvido mal.",
     "Trabalho nos dois lados da tela. Na frente, me interessa a experiência — o quanto uma decisão de interface reduz o esforço de quem usa. Atrás, me interessa a estrutura — o quanto o código continua fácil de mudar seis meses depois.",
-    "Antes de escrever meus próprios produtos, passei por operações digitais reais: e-commerce, checkout, rastreamento, automação e os sites que precisavam estar no ar no dia do lançamento. Foi ali que aprendi a diferença entre um sistema que funciona na demonstração e um que aguenta o cliente chegando.",
+    "Desde 2022 trabalho dentro de operações digitais reais: e-commerce, checkout, rastreamento, automação e os sites que precisam estar no ar no dia do lançamento. Foi ali que aprendi a diferença entre um sistema que funciona na demonstração e um que aguenta o cliente chegando.",
   ],
 };
 
@@ -479,10 +479,10 @@ export const timeline: TimelineEntry[] = [
   {
     id: "paper-memories-casa",
     kind: "Experiência",
-    title: "Tecnologia e e-commerce",
+    title: "Desenvolvedor Web & Analista de Tecnologia",
     organization: "Paper Memories Casa",
-    period: "", // PREENCHER: ex. "2024 — atual"
-    status: "",
+    period: "2026 — atual",
+    status: "Atual",
     description:
       "Acompanhei a marca desde o início da operação, responsável pela infraestrutura digital que sustenta os lançamentos: o e-commerce, a jornada de compra e o que precisa funcionar quando o cliente chega ao site.",
     highlights: [
@@ -490,7 +490,7 @@ export const timeline: TimelineEntry[] = [
       "Configuração e testes de checkout, meios de pagamento e frete",
       "Conferência da jornada de compra completa antes de cada lançamento",
       "Cadastro e organização de catálogo: produtos, coleções, preços, pesos e medidas",
-      "Suporte técnico durante campanhas e picos de volume",
+      "Suporte técnico durante campanhas e picos de tráfego nos lançamentos",
       "Acompanhamento de indicadores comerciais dos lançamentos",
       "Produção e edição de vídeos e criativos para as campanhas",
     ],
@@ -501,18 +501,18 @@ export const timeline: TimelineEntry[] = [
   {
     id: "conviteria-paper-memories",
     kind: "Experiência",
-    title: "Tecnologia e sites",
+    title: "Desenvolvedor Web & Suporte Técnico",
     organization: "Conviteria Paper Memories",
-    period: "", // PREENCHER
+    period: "2025 — 2026",
     status: "",
     description:
       "Responsável pelos sites personalizados de casamento entregues a cada casal — traduzir a identidade visual do projeto em uma experiência digital para os convidados, e mantê-la no ar até o dia do evento.",
     highlights: [
       "Criação, configuração e gerenciamento dos sites de casamento",
       "Estruturação de cada site conforme a identidade visual do projeto",
-      "Organização das informações: cerimônia, recepção, lista de presentes e confirmação de presença",
+      "Confirmação de presença, listas de presentes e cronogramas interativos para os convidados",
       "Manutenção e ajustes durante todo o período de preparação",
-      "Suporte técnico ao site institucional e às ferramentas digitais",
+      "Estabilidade e desempenho do site institucional e das ferramentas digitais",
       "Atendimento direto às noivas para mudanças no ambiente digital",
     ],
     result: "",
@@ -521,19 +521,19 @@ export const timeline: TimelineEntry[] = [
   {
     id: "marca-leticia-oliveira",
     kind: "Experiência",
-    title: "Tecnologia, automação e dados",
+    title: "Desenvolvedor Web, Automação & Operações Digitais",
     organization: "Marca Letícia Oliveira",
-    period: "", // PREENCHER
+    period: "2022 — 2025",
     status: "",
     description:
       "Atuei na infraestrutura que liga aquisição, automação e pós-venda — não só na ponta da campanha, mas nos sistemas que precisavam conversar entre si para o cliente ter uma jornada contínua.",
     highlights: [
       "Implementação e organização da plataforma de cursos na Kiwify",
-      "Configuração de Pixel, Google Tag Manager e GA4, com eventos de conversão",
+      "Tracking com Meta Business Manager, Google Tag Manager, GA4 e Meta Pixel, com eventos de conversão personalizados",
       "Construção de automações de marketing e pós-venda no ManyChat e no BotConversa",
-      "Jornadas automáticas de relacionamento (D+1, D+2, D+3) e segmentação por tags",
+      "Réguas de relacionamento (D+1, D+2, D+3) e fluxos automáticos de upsell",
       "Integrações entre as plataformas da operação digital",
-      "Gestão de tráfego pago e acompanhamento de indicadores de campanha",
+      "Gestão de tráfego pago com testes A/B e acompanhamento de indicadores",
       "Apoio à estrutura de blog e SEO",
     ],
     result:
