@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   creator: profile.name,
   keywords: [
     "Gabriel Sousa",
-    "desenvolvedor",
+    "estágio em TI",
     "engenharia de software",
     "desenvolvimento web",
     "produtos digitais",

@@ -20,7 +20,7 @@
 
 export const profile = {
   name: "Gabriel Sousa",
-  role: "Desenvolvedor · Estudante de Engenharia de Software",
+  role: "Estudante de Engenharia de Software",
 
   /** Tag de status no card do retrato. */
   availability: "Disponível para oportunidades",
@@ -30,7 +30,7 @@ export const profile = {
    * A primeira sai em branco, a segunda em cinza.
    */
   headline: {
-    line1: "Desenvolvedor",
+    line1: "Engenharia",
     line2: "de Software",
   },
 
@@ -562,7 +562,7 @@ export const timeline: TimelineEntry[] = [
 
 export const contact = {
   title: { line1: "Vamos construir", line2: "alguma coisa" },
-  text: "Estou em busca de estágio ou primeira oportunidade em desenvolvimento. Se você tem um problema interessante para resolver, quero saber dele.",
+  text: "Estou em busca de estágio em Tecnologia da Informação, em uma empresa com equipe de TI estruturada onde eu possa aprender e contribuir. Se você tem um problema interessante para resolver, quero saber dele.",
   cta: "Enviar mensagem",
   /**
    * O formulário abre o app de e-mail do visitante com a mensagem
@@ -576,7 +576,7 @@ export const contact = {
     message: "Mensagem",
     subjectOptions: [
       "Oportunidade de estágio",
-      "Vaga de desenvolvimento",
+      "Vaga em TI",
       "Projeto freelance",
       "Outro assunto",
     ],
@@ -609,9 +609,9 @@ export const sectionIds = [
 export const site = {
   /** URL de produção. Alimenta sitemap, canonical e Open Graph. */
   url: "https://gbrsousa.vercel.app",
-  title: "Gabriel Sousa — Desenvolvedor de Software",
+  title: "Gabriel Sousa — Engenharia de Software",
   description:
-    "Gabriel Sousa, desenvolvedor e estudante de Engenharia de Software. Construo produtos digitais completos — da experiência de uso à estrutura que sustenta o sistema.",
+    "Gabriel Sousa, estudante de Engenharia de Software com experiência desde 2022 em operações digitais. Construo produtos digitais completos — da experiência de uso à estrutura que sustenta o sistema.",
   locale: "pt_BR",
   footerNote: "Desenvolvido com cuidado.",
 };

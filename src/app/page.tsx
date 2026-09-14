@@ -21,7 +21,7 @@ function personJsonLd() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: profile.name,
-    jobTitle: "Desenvolvedor de Software",
+    jobTitle: "Estudante de Engenharia de Software",
     description: site.description,
     url: site.url,
     image: `${site.url}${profile.photo.src}`,
