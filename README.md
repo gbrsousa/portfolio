@@ -71,7 +71,7 @@ do case. Sempre escreva o `alt` — ele é lido por quem usa leitor de tela.
 
 ### Como trocar a foto
 
-Substitua `public/gabriel.jpg` (retrato vertical, proporção ~4:5, no
+Substitua `public/gabriel-sousa.jpg` (retrato vertical, proporção ~4:5, no
 mínimo 800px de largura) ou ajuste o caminho em `profile.photo`.
 
 ## Estrutura

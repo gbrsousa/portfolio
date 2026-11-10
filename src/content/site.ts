@@ -48,10 +48,10 @@ export const profile = {
    * Formato ideal: retrato vertical, ~4:5, mínimo 800px de largura.
    */
   photo: {
-    src: "/gabriel.jpg",
+    src: "/gabriel-sousa.jpg",
     alt: "Retrato de Gabriel Sousa",
-    width: 1173,
-    height: 1341,
+    width: 960,
+    height: 960,
   },
 } as const;
 
